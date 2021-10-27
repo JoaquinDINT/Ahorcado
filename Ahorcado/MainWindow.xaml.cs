@@ -20,7 +20,7 @@ namespace Ahorcado
     public partial class MainWindow : Window
     {
         private int numLetrasPorAcertar;
-        private int numVidas = 7;
+        private int numVidas = 6;
         private bool partidaActiva = true;
         private string letrasYaUsadas = "";
 
@@ -68,19 +68,19 @@ namespace Ahorcado
 
         private void NuevaClick(object sender, RoutedEventArgs e)
         {
-            numVidas = 7;
+            numVidas = 6;
             partidaActiva = true;
             letrasYaUsadas = "";
-
-            PalabraOcultaDockPanel.Children.Clear();
-
-            CrearPalabraSecreta();
 
             foreach (AspectRatioLayoutDecorator decorador in LetrasUniformGrid.Children)
             {
                 Button boton = decorador.Child as Button;
                 boton.IsEnabled = true;
             }
+
+            PalabraOcultaDockPanel.Children.Clear();
+
+            CrearPalabraSecreta();
         }
 
         private void BajarVidas()
